@@ -1,0 +1,30 @@
+{{/*
+    This layout HTML is used for the majority of the web app pages with the exception of a few pages
+    which may not want to import certain tags for security purposes
+
+    {{ block "content" }} is replaced with {{ define "content" }} from template files
+    {{ block "styles" }} is replaced with {{ define "styles" }} from template files
+    {{ block "script" }} is replaced with {{ define "script" }} from template files
+
+*/}}
+{{ define "base.layout" }}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Meta Description">
+        <title>Page Title</title>
+        <link rel="stylesheet" href="{{ asset "bootstrap-css" }}" nonce="{{ .page.Nonce.Style }}">
+        <link rel="stylesheet" href="{{ asset "bootstrap-icons" }}" nonce="{{ .page.Nonce.Style }}">
+        <link rel="stylesheet" href="{{ asset "app-css" }}" nonce="{{ .page.Nonce.Style }}">
+        {{ block "styles" . }}{{ end }}
+    </head>
+    <body>
+    {{ block "content" . }}{{ end }}
+    <script src="{{ asset "bootstrap-js" }}" nonce="{{ .page.Nonce.Script }}"></script>
+    <script src="{{ asset "app-js" }}" nonce="{{ .page.Nonce.Script }}"></script>
+    {{ block "scripts" . }}{{ end }}
+    </body>
+    </html>
+{{ end }}

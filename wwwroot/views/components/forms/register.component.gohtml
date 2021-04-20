@@ -1,0 +1,39 @@
+{{ define "form:register" }}
+    <div class="errors">
+
+    </div>
+    <form method="post" novalidate>
+        {{ .csrfField }}
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="email_address" name="email_address" placeholder="name@example.com" value="{{ .user.EmailAddress }}">
+            <label for="email_address">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="{{ .user.FirstName }}">
+            <label for="first_name">First Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{ .user.LastName }}">
+            <label for="last_name">Last Name</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control {{ if .errors.Password }}is-invalid{{ end }}" id="password" name="password" placeholder="Password">
+            <label for="password">Password</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control {{ if .errors.Password }}is-invalid{{ end }}" id="confirm_password" name="confirm_password" placeholder="Password">
+            <label for="confirm_password">Confirm Password</label>
+            <div id="password-validation-message" class="invalid-feedback">
+                <p>Passwords did not match or did not meet the password policy</p>
+                <p class="fw-bold">Password policy</p>
+                <ul>
+                    <li>Must be at least 8 Character long</li>
+                    <li>Contain at least 1 Uppercase letter</li>
+                    <li>Contain at least 1 Lowercase letter</li>
+                    <li>Contain at least 1 Number</li>
+                </ul>
+            </div>
+        </div>
+        <button class="btn btn-primary">Submit</button>
+    </form>
+{{ end }}

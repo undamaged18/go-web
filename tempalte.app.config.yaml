@@ -1,0 +1,16 @@
+environment: development
+server_name: domain.co.uk
+ports:
+  http: :4201
+  https: :4200
+tls:
+  key: /path/to/tls/key
+  cert: /path/to/tls/cert
+paths:
+  templates: /path/to/html/templates/root
+  dist: /path/to/web/root
+  logs: /path/to/logs/root
+keys:
+  jwt: 32-byte-key
+  session: 32-byte-key
+  csrf: 32-byte-key

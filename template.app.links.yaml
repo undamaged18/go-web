@@ -1,0 +1,16 @@
+routes:
+  index: /
+  contact: /contact
+  about: /about
+  delivery: /delivery
+  account:login: /login
+  account:logout: /logout
+  account:register: /register
+  account:detail: /account
+assets:
+  logo: /logo.png
+  app-css: /assets/css/app.min.css
+  app-js: /assets/js/app.min.js
+  bootstrap-css: /assets/css/bootstrap.min.css
+  bootstrap-icons: /assets/css/bootstrap-icons.min.css
+  bootstrap-js: /assets/js/bootstrap.min.js

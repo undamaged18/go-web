@@ -1,0 +1,21 @@
+content-security-policy:
+  enabled: true
+  value: style-src-elem 'nonce-%s'; script-src-elem 'nonce-%s';
+hsts:
+  enabled: false
+  value: max-age=31536000; includeSubDomains;
+referrer-policy:
+  enabled: true
+  value: strict-origin
+x-xss-protection:
+  enabled: true
+  value: 1; mode=block
+x-content-type-options:
+  enabled: true
+  value: nosniff
+x-frame-options:
+  enabled: true
+  value: sameorigin
+permissions-policy:
+  enabled: true
+  value: geolocation=(), microphone=()
