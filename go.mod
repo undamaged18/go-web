@@ -3,6 +3,7 @@ module ecommerce
 go 1.16
 
 require (
+	github.com/badoux/checkmail v1.2.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gorilla/csrf v1.7.0
 	github.com/gorilla/handlers v1.5.1

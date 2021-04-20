@@ -2,7 +2,9 @@
 
 {{ define "content" }}
     <h1>Hello register</h1>
-    {{ template "form:register" . }}
+    <div class="container">
+        {{ template "form:register" . }}
+    </div>
 {{ end }}
 
 {{ define "styles" }}{{ end }}

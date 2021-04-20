@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"github.com/badoux/checkmail"
 	"unicode"
 )
 
@@ -14,7 +15,7 @@ type user struct {
 }
 
 type FormErrors struct {
-	Password bool
+	Password, FirstName, LastName, EmailAddress bool
 }
 
 func NewUser() *user {
@@ -31,10 +32,10 @@ func (u *user) Create() FormErrors {
 		formErr.Password = true
 	}
 	var (
-		hasMinLen      = false
-		hasUpper       = false
-		hasLower       = false
-		hasNumber      = false
+		hasMinLen = false
+		hasUpper  = false
+		hasLower  = false
+		hasNumber = false
 	)
 	if len(u.Password) >= 8 {
 		hasMinLen = true
@@ -51,6 +52,20 @@ func (u *user) Create() FormErrors {
 	}
 	if !hasNumber || !hasUpper || !hasLower || !hasMinLen {
 		formErr.Password = true
+	}
+
+	if u.FirstName == "" {
+		formErr.FirstName = true
+	}
+
+	if u.LastName == "" {
+		formErr.LastName = true
+	}
+
+	if err := checkmail.ValidateFormat(u.EmailAddress); err != nil {
+		formErr.EmailAddress = true
+	} else if err := checkmail.ValidateHost(u.EmailAddress); err != nil {
+		formErr.EmailAddress = true
 	}
 
 	fmt.Println(u)

@@ -5,16 +5,19 @@
     <form method="post" novalidate>
         {{ .csrfField }}
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="email_address" name="email_address" placeholder="name@example.com" value="{{ .user.EmailAddress }}">
+            <input type="email" class="form-control {{ if .errors.EmailAddress }}is-invalid{{ end }}" id="email_address" name="email_address" placeholder="name@example.com" value="{{ .user.EmailAddress }}">
             <label for="email_address">Email address</label>
+            <div id="password-validation-message" class="invalid-feedback">Email address is not valid</div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name" value="{{ .user.FirstName }}">
+            <input type="text" class="form-control {{ if .errors.FirstName }}is-invalid{{ end }}" id="first_name" name="first_name" placeholder="First Name" value="{{ .user.FirstName }}">
             <label for="first_name">First Name</label>
+            <div id="password-validation-message" class="invalid-feedback">First name can not be blank</div>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" value="{{ .user.LastName }}">
+            <input type="text" class="form-control {{ if .errors.LastName }}is-invalid{{ end }}" id="last_name" name="last_name" placeholder="Last Name" value="{{ .user.LastName }}">
             <label for="last_name">Last Name</label>
+            <div id="password-validation-message" class="invalid-feedback">Last name can not be blank</div>
         </div>
         <div class="form-floating mb-3">
             <input type="password" class="form-control {{ if .errors.Password }}is-invalid{{ end }}" id="password" name="password" placeholder="Password">
