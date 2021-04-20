@@ -1,13 +1,19 @@
 {{ define "form:login" }}
-    <form method="post">
+    {{ if .error }}<div class="alert alert-danger" role="alert">
+        <span>We were able to log you in with the provided details. Please try again</span>
+        <br>
+        <span>Don't have an account? you can <a href="{{ link "account:register" }}">register for one here</a>.</span>
+    </div>{{ end }}
+    <form method="post" novalidate>
         {{ .csrfField }}
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control {{ if .error }}is-invalid{{ end }}" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control {{ if .error }}is-invalid{{ end }}" id="floatingPassword" placeholder="Password">
             <label for="floatingPassword">Password</label>
         </div>
+        <button class="btn btn-primary">Submit</button>
     </form>
 {{ end }}

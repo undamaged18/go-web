@@ -2,7 +2,9 @@
 
 {{ define "content" }}
     <h1>Hello login</h1>
-    {{ template "form:login" . }}
+        <div class="container">
+            {{ template "form:login" . }}
+        </div>
 {{ end }}
 
 {{ define "styles" }}{{ end }}

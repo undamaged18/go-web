@@ -11,13 +11,23 @@ import (
 
 func login(w http.ResponseWriter, r *http.Request) {
 	user := models.NewUser()
+	var loginErr bool
 	if r.Method == http.MethodPost {
-		user.Authenticate()
+		if err := forms.Parse(r); err != nil {
+			fn, line := errors.FuncTrace()
+			errors.Panic(http.StatusInternalServerError, fn, line, err)
+		}
+		if err := forms.Decoder(user, r.PostForm, true); err != nil {
+			fn, line := errors.FuncTrace()
+			errors.Panic(http.StatusInternalServerError, fn, line, err)
+		}
+		loginErr = user.Authenticate()
 	}
 	page := models.NewPage(r.Context())
 	engine.RenderTemplate(w, "account:login", map[string]interface{}{
 		csrf.TemplateTag: csrf.TemplateField(r),
-		"page": page,
+		"error":          loginErr,
+		"page":           page,
 	})
 }
 
@@ -38,9 +48,9 @@ func register(w http.ResponseWriter, r *http.Request) {
 	page := models.NewPage(r.Context())
 	engine.RenderTemplate(w, "account:register", map[string]interface{}{
 		csrf.TemplateTag: csrf.TemplateField(r),
-		"page": page,
-		"user": user,
-		"errors": formErrors,
+		"page":           page,
+		"user":           user,
+		"errors":         formErrors,
 	})
 }
 

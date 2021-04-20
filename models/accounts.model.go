@@ -15,15 +15,16 @@ type user struct {
 }
 
 type FormErrors struct {
-	Password, FirstName, LastName, EmailAddress bool
+	Errors, Password, FirstName, LastName, EmailAddress bool
 }
 
 func NewUser() *user {
 	return &user{}
 }
 
-func (u *user) Authenticate() {
-
+func (u *user) Authenticate() bool {
+	fmt.Println(u)
+	return true
 }
 
 func (u *user) Create() FormErrors {
@@ -51,20 +52,25 @@ func (u *user) Create() FormErrors {
 		}
 	}
 	if !hasNumber || !hasUpper || !hasLower || !hasMinLen {
+		formErr.Errors = true
 		formErr.Password = true
 	}
 
 	if u.FirstName == "" {
+		formErr.Errors = true
 		formErr.FirstName = true
 	}
 
 	if u.LastName == "" {
+		formErr.Errors = true
 		formErr.LastName = true
 	}
 
 	if err := checkmail.ValidateFormat(u.EmailAddress); err != nil {
+		formErr.Errors = true
 		formErr.EmailAddress = true
 	} else if err := checkmail.ValidateHost(u.EmailAddress); err != nil {
+		formErr.Errors = true
 		formErr.EmailAddress = true
 	}
 

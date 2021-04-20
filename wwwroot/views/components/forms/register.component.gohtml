@@ -1,7 +1,5 @@
 {{ define "form:register" }}
-    <div class="errors">
-
-    </div>
+    {{ if .errors.Errors }}<div class="alert alert-danger" role="alert"><span>There were errors with the form</span></div>{{ end }}
     <form method="post" novalidate>
         {{ .csrfField }}
         <div class="form-floating mb-3">
