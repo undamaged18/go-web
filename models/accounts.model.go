@@ -66,7 +66,7 @@ func (u *user) Create() FormErrors {
 		formErr.LastName = true
 	}
 
-	if err := checker.Host(u.EmailAddress); err != nil {
+	if err := checker.Email().Host(u.EmailAddress); err != nil {
 		formErr.Errors = true
 		formErr.EmailAddress = true
 	}

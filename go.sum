@@ -24,6 +24,8 @@ github.com/undamaged18/checker v0.0.0-20210421183050-ca17b60b58b5 h1:XepT87NIka1
 github.com/undamaged18/checker v0.0.0-20210421183050-ca17b60b58b5/go.mod h1:D2O5hQQMiNZSZBHQeThRr2HGpQZrTKwT3/2hDVX4BMc=
 github.com/undamaged18/checker v0.0.0-20210421185415-4743299487b0 h1:6r45ndbrn0GhSN1/9VV/6lVa0Z53uOQNj9OgP+M7NDo=
 github.com/undamaged18/checker v0.0.0-20210421185415-4743299487b0/go.mod h1:D2O5hQQMiNZSZBHQeThRr2HGpQZrTKwT3/2hDVX4BMc=
+github.com/undamaged18/checker v0.0.2-beta h1:S/2UxUcaqFr4Nga/CEEqTGg8RJD2EGE9o58r2LC0hZY=
+github.com/undamaged18/checker v0.0.2-beta/go.mod h1:D2O5hQQMiNZSZBHQeThRr2HGpQZrTKwT3/2hDVX4BMc=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b h1:7mWr3k41Qtv8XlltBkDkl8LoP3mpSgBW8BUoxtEdbXg=
 golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b/go.mod h1:T9bdIzuCu7OtxOm1hfPfRQxPLYneinmdGuTeoZ9dtd4=
 golang.org/x/net v0.0.0-20210226172049-e18ecbb05110/go.mod h1:m0MpNAwzfU5UDzcl9v0D8zg8gWTRqZa9RBIspLL5mdg=
