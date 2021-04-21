@@ -12,6 +12,8 @@ require (
 	github.com/gorilla/securecookie v1.1.1
 	github.com/gorilla/sessions v1.2.1
 	github.com/rs/xid v1.3.0
-	golang.org/x/crypto v0.0.0-20210415154028-4f45737414dc
+	github.com/undamaged18/checker v0.0.0-20210421185415-4743299487b0 // indirect
+	golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b
+	golang.org/x/net v0.0.0-20210420210106-798c2154c571 // indirect
 	gopkg.in/yaml.v2 v2.4.0
 )

@@ -2,7 +2,7 @@ package models
 
 import (
 	"fmt"
-	"github.com/badoux/checkmail"
+	"github.com/undamaged18/checker"
 	"unicode"
 )
 
@@ -66,10 +66,7 @@ func (u *user) Create() FormErrors {
 		formErr.LastName = true
 	}
 
-	if err := checkmail.ValidateFormat(u.EmailAddress); err != nil {
-		formErr.Errors = true
-		formErr.EmailAddress = true
-	} else if err := checkmail.ValidateHost(u.EmailAddress); err != nil {
+	if err := checker.Host(u.EmailAddress); err != nil {
 		formErr.Errors = true
 		formErr.EmailAddress = true
 	}

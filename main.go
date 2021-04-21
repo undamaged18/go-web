@@ -1,7 +1,8 @@
+//Package main is the root
 package main
 
 import (
-	server2 "ecommerce/server"
+	"ecommerce/server"
 	"ecommerce/services/config"
 	"fmt"
 	"os"
@@ -9,7 +10,7 @@ import (
 
 func main() {
 	intro()
-	server2.Run()
+	server.Run()
 }
 
 func intro() {
